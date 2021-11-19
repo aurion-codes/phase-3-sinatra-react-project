@@ -10,6 +10,11 @@ class DoctorController < ApplicationController
         doctor.to_json
     end
 
+    get '/doctors/:id/patients' do
+        doctor = Doctor.find(params[:id])
+        doctor.patients.to_json
+    end
+
     post '/doctors' do 
         Doctor.create(first_name: params[:first_name], last_name: params[:last_name] , specialty: params[:specialty]).to_json
     end  
